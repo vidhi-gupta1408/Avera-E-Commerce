@@ -12,7 +12,7 @@ def shop(request):
 
 # Features view
 def features(request):
-    return render(request, 'shoping-cart.html')
+    return render(request, 'shopping-cart.html')
 
 # Blog view
 def blog(request):
@@ -34,3 +34,6 @@ def footer_view(request):
 
 def login_view(request):
     return render(request, 'login.html')  # adjust path if namespaced
+
+def cart_view(request):
+    return render(request, 'shopping-cart.html')
