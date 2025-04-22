@@ -1,5 +1,5 @@
 {% load static %}
-{% include 'header.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,43 +7,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png ' %}"/>
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css ' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css ' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 <!--===============================================================================================-->
 
 </head>
 <body class="animsition">
 	
 	<!-- Header -->
-	<div id="header"></div>
-
-	<script>
-	fetch('/header/')
-		.then(response => response.text())
-		.then(data => {
-		document.getElementById('header').innerHTML = data;
-		});
-	</script>
+	{% include 'header.html' %}
 
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -132,7 +124,7 @@
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({% static 'images/bg-01.jpg' %});">
 		<h2 class="ltext-105 cl0 txt-center">
 			Contact
 		</h2>
@@ -218,16 +210,7 @@
 	</section>	
 	
 	<!-- Footer -->
-	<div id="footer"></div>
-
-	<script>
-	fetch('/footer/')
-		.then(response => response.text())
-		.then(data => {
-		document.getElementById('footer').innerHTML = data;
-		});
-	</script>
-
+	{% include 'footer.html' %}
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
@@ -254,9 +237,9 @@
 		})
 	</script>
 <!--===============================================================================================-->
-	<script src="{% static ' vendor/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="{% static ' vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
 	<script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');

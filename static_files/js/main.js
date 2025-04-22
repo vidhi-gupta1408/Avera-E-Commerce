@@ -583,10 +583,8 @@ $(document).ready(function ($) {
         $('.main-menu li a').css('background-color', ''); // Reset background
     }
 
-    // Ensure the menu is reset on page load (after a slight delay)
-    setTimeout(function() {
-        resetMenu();
-    }, 100);
+    // Reset the menu state when the page loads
+    resetMenu();
 
     // Reset the menu if the page is shown again (tab switch, page reload)
     window.addEventListener('pageshow', function () {
@@ -599,6 +597,16 @@ $(document).ready(function ($) {
             resetMenu();
         }
     });
+
+    function resetMenu() {
+        // Ensure the active states are cleared on page load
+        $('.main-menu li').removeClass('active');
+        $('.main-menu li a').removeClass('active selected current');
+
+        // Optionally reset hover or custom styles if needed
+        $('.main-menu li a').css('color', '');  // Reset text color
+        $('.main-menu li a').css('background-color', ''); // Reset background color
+    }
 
     // Handle click events to add the 'active' class
     $('.main-menu li a').on('click', function () {
@@ -614,6 +622,7 @@ $(document).ready(function ($) {
             resetMenu();
         }
     });
+
     
 })(jQuery);
 

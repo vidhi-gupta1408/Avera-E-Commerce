@@ -34,16 +34,7 @@
 <body class="animsition">
 	
 	<!-- Header -->
-	<div id="header"></div>
-
-	<script>
-	fetch('/header/')
-		.then(response => response.text())
-		.then(data => {
-		document.getElementById('header').innerHTML = data;
-		});
-	</script>
-
+	{% include 'header.html' %}
 
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -500,16 +491,7 @@
 	</section>	
 	
 	<!-- Footer -->
-	<div id="footer"></div>
-
-	<script>
-	fetch('/footer/')
-		.then(response => response.text())
-		.then(data => {
-		document.getElementById('footer').innerHTML = data;
-		});
-	</script>
-
+	{% include 'footer.html' %}
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
