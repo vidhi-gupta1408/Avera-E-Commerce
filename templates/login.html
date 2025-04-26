@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login & Registration</title>
+    <title>Login</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
     
@@ -35,7 +35,7 @@
         </div>
         <div class="toggle-form">
             <a href="#">Forgot Password?</a><br>
-            No account? <a href="#" onclick="toggleForms()">Click here to create a profile with us</a>
+            No account? <a href="#" onclick="toggleForms()">Click here!!</a>
         </div>
     </div>
 
@@ -75,41 +75,49 @@
             document.getElementById('login-form').classList.toggle('hidden');
             document.getElementById('register-form').classList.toggle('hidden');
         }
-
+        
         function login() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+        
             if (!email || !password) {
-                alert("Please enter both email and password.");
-            } else {
-                alert(`Logged in with: ${email}`);
+                showMessage("Please enter both email and password.");
+                return;
             }
         }
-
+        
         function register() {
-            const name = document.getElementById('register-name').value;
-            const phone = document.getElementById('register-phone').value;
-            const email = document.getElementById('register-email').value;
+            const name = document.getElementById('register-name').value.trim();
+            const phone = document.getElementById('register-phone').value.trim();
+            const email = document.getElementById('register-email').value.trim();
             const password = document.getElementById('register-password').value;
             const confirm = document.getElementById('register-confirm').value;
-
+        
             if (!name || !phone || !email || !password || !confirm) {
-                alert("Please fill in all fields.");
+                showMessage("Please fill in all fields.");
                 return;
             }
-
+        
             if (password !== confirm) {
-                alert("Passwords do not match.");
+                showMessage("Passwords do not match.");
                 return;
             }
-
-            alert(`Registered successfully as ${name}`);
         }
+        
+        function showMessage(message, type = "error") {
+            const msg = document.createElement('div');
+            msg.className = `msg-box ${type}`;
+            msg.innerText = message;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }        
     </script>
 
     <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/slick-custom.js' %}"></script>
 
 </body>
 </html>

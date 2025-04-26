@@ -1,40 +1,55 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f4f4f4;
+    background-color: #f7f7f7 !important;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .form-container {
+    background: #fff;
     max-width: 400px;
     margin: 40px auto;
     padding: 30px;
-    background: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
-.form-container h2 {
+h2 {
     text-align: center;
     margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
 }
 
 .form-group {
     margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
+.form-group label {
     display: block;
-    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"] {
+.form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    height: 44px;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #a960ee;
+    outline: none;
+    box-shadow: 0 0 5px rgba(169, 96, 238, 0.2);
 }
 
 .form-actions {
@@ -43,26 +58,32 @@ input[type="tel"] {
 }
 
 .form-actions button {
-    padding: 10px 20px;
-    background: #333;
+    background-color: #333334;
     color: #fff;
+    font-weight: 600;
+    padding: 10px 0px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .form-actions button:hover {
-    background: #555;
+    background-color: #717fe0;
 }
 
 .toggle-form {
-    margin-top: 10px;
     text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .toggle-form a {
-    color: #007bff;
+    color: #717fe0;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .toggle-form a:hover {
@@ -73,12 +94,13 @@ input[type="tel"] {
     display: none;
 }
 
-.main-menu {
-    margin-bottom: 20%; /* Adjust as needed */
+@media screen and (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
 }
-
-.form {
-    margin-top: 1%; /* Adjust as needed */
-}
-
-
