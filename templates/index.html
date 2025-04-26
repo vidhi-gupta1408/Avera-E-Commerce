@@ -558,9 +558,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Esprit Ruffle Shirt
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$16.64
@@ -590,9 +590,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Herschel supply
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$35.31
@@ -622,9 +622,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Only Check Trouser
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$25.50
@@ -654,9 +654,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Classic Trench Coat
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$75.00
@@ -686,9 +686,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Front Pocket Jumper
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$34.75
@@ -718,9 +718,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Vintage Inspired Classic 
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$93.20
@@ -750,9 +750,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Shirt in Stretch Cotton
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$52.66
@@ -782,9 +782,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Pieces Metallic Printed
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$18.96
@@ -814,9 +814,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Converse All Star Hi Plimsolls
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$75.00
@@ -846,9 +846,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Femme T-Shirt In Stripe
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$25.85
@@ -878,9 +878,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Herschel supply 
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$63.16
@@ -910,9 +910,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Herschel supply
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$63.15
@@ -942,9 +942,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									T-Shirt with Sleeve
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$18.49
@@ -974,9 +974,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Pretty Little Thing
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$54.79
@@ -1006,9 +1006,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Mini Silver Mesh Watch
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$86.85
@@ -1038,9 +1038,9 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{% url 'core:features' %}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Square Neck Back
-								</a>
+								{% for item in items %}
+  									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
+								{% endfor %}
 
 								<span class="stext-105 cl3">
 									$29.64

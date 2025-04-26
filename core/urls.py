@@ -7,7 +7,7 @@ app_name = 'core'
 urlpatterns = [
     path('', item_list, name='item-list'),
     path('shop/', views.shop, name='shop'),  # URL for Shop
-    path('features/', views.features, name='features'),  # URL for Features
+    path('features/<slug>/', views.features, name='features'),  # URL for Features
     path('blog/', views.blog, name='blog'),  # URL for Blog
     path('blog-detail/', views.blog, name='blog-detail'),  # URL for Blog
     path('about/', views.about, name='about'),  # URL for About
@@ -15,5 +15,6 @@ urlpatterns = [
     path('header/', views.header_view, name='header'),  # ← ADD THIS
     path('footer/', views.footer_view, name='footer'),
     path('login/', views.login_view, name='login'),
-    path('shopping-cart/', views.cart_view, name='cart'),
+    path('shopping-cart/<slug>/', views.cart_view, name='cart-default'),
+    path('shopping-cart/', views.cart_default_view, name='cart'),
 ]

@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Item
+from django.shortcuts import render, get_object_or_404
+from .models import Item, OrderItem, Order
+from django.shortcuts import redirect
 
 def item_list(request):
     context = {
@@ -35,5 +36,25 @@ def footer_view(request):
 def login_view(request):
     return render(request, 'login.html')  # adjust path if namespaced
 
-def cart_view(request):
+def cart_default_view(request):
     return render(request, 'shopping-cart.html')
+
+def cart_view(request, slug):
+    item = get_object_or_404(Item, slug = slug)
+    order_item = OrderItem.objects.create(item = item)
+    order_qs = Order.objects.filter(user = request.user, ordered = False)
+
+    if order_qs.exists():
+        order = order_qs[0]
+
+        if order.items.filter(item__slug = item.slug).exists():
+            order_item.quantity += 1
+            order_item.save()
+
+    else:
+        order = Order.objects.create(user = request.user)
+        order.items.add(order_item)
+    
+    return redirect("core:features", kwargs = {
+        "slug": slug
+    })
