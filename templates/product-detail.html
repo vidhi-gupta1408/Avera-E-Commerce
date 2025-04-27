@@ -261,9 +261,13 @@
 										</div>
 									</div>
 
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-										Add to cart
-									</button>
+									<form method="POST" action="{{ object.get_cart_view_url }}">
+										{% csrf_token %}
+										<button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											Add to Cart
+										</button>
+									</form>
+									
 								</div>
 							</div>	
 						</div>
@@ -882,9 +886,12 @@
 											</div>
 										</div>
 
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart
-										</button>
+										<form method="POST" action="{{ object.get_cart_view_url }}">
+											{% csrf_token %}
+											<button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+												Add to Cart
+											</button>
+										</form>										
 									</div>
 								</div>	
 							</div>

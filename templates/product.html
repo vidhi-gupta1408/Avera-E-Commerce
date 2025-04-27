@@ -375,7 +375,11 @@
 			</div>
 
 			<div class="row isotope-grid">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				{% for item in object_list %}
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+					<a href = "">
+						<span>{{ object.get_category_display }}</span>
+					</a>
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -388,12 +392,10 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								{% for item in items %}
   									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
-								{% endfor %}
 
 								<span class="stext-105 cl3">
-									$16.64
+									${{ item.price }}
 								</span>
 							</div>
 
@@ -406,8 +408,9 @@
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				{% comment %} <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -885,14 +888,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-
-			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
+				</div> {% endcomment %}
 			</div>
 		</div>
 	</div>
