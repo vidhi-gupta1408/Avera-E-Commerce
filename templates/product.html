@@ -394,9 +394,14 @@
 							<div class="block2-txt-child1 flex-col-l ">
   									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
 
-								<span class="stext-105 cl3">
-									${{ item.price }}
-								</span>
+									<span class="stext-105 cl3">
+										$
+										{% if item.discount_price %}
+										{{ item.discount_price }}
+										{% else %}
+										{{ item.price }}
+										{% endif %}
+									</span>
 							</div>
 
 							<div class="block2-txt-child2 flex-r p-t-3">

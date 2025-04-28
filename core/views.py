@@ -3,7 +3,8 @@ from django.views.generic import ListView, DetailView
 from .models import Item, OrderItem, Order
 from django.utils import timezone
 from django.views.decorators.http import require_POST
-from django.contrib.auth.models import User #Import User model
+from django.contrib.auth.models import User 
+from django.contrib import messages
 
 
 class HomeView(ListView):
@@ -44,28 +45,60 @@ def product_detail(request, slug):
     item = get_object_or_404(Item, slug=slug)
     return render(request, 'product-detail.html', {'object': item})
 
-# Secure cart_view to POST only
-@require_POST
 def cart_view(request, slug):
     item = get_object_or_404(Item, slug=slug)
-    # Use get_or_create to handle order creation/retrieval
-    order, created = Order.objects.get_or_create(user=request.user, ordered=False)
+    order_item, created = OrderItem.objects.get_or_create(
+        item = item, 
+        user=request.user,
+        ordered = False
+    )
+    order_qs = Order.objects.filter(user = request.user, ordered = False)
+    
+    if order_qs.exists():
+        order = order_qs[0]
 
-    order_item_qs = order.items.filter(item=item)  # Changed item__slug to item
+        if order.items.filter(item__slug = item.slug).exists():
+            order_item.quantity += 1
+            order_item.save()
+            messages.info(request, "Cart Updated")
 
-    if order_item_qs.exists():
-        order_item = order_item_qs.first()
-        order_item.quantity += 1
-        order_item.save()
-        print(
-            f"Increased quantity of {item.title} to {order_item.quantity}")  # Debugging
+        else:
+            messages.info(request, "Added to cart")
+            order.items.add(order_item)  
+            return redirect("core:features", slug = slug)  
+
     else:
-        order_item = OrderItem.objects.create(item=item, quantity=1)  # set quantity here
+        ordered_date = timezone.now()
+        order = Order.objects.create(user = request.user, ordered_date = ordered_date)
         order.items.add(order_item)
-        print(f"Added {item.title} to order")  # Debugging
+        messages.info(request, "Added to Cart")
 
-    order.ordered_date = timezone.now()  # set ordered_date
-    order.save()  # save order
-    print(
-        f"Order ID: {order.id}, User: {request.user.username}, Ordered: {order.ordered}")  # Debugging
-    return redirect('core:cart')
+    return redirect("core:features", slug = slug)
+
+def remove_cart_view(request, slug):
+    item = get_object_or_404(Item, slug=slug)
+
+    order_qs = Order.objects.filter(user = request.user, ordered = False)
+    
+    if order_qs.exists():
+        order = order_qs[0]
+
+        if order.items.filter(item__slug = item.slug).exists():
+            order_item = OrderItem.objects.filter(
+                item = item, 
+                user=request.user,
+                ordered = False
+            )[0]
+
+            order.items.remove(order_item)
+            messages.info(request, "Item Removed")
+
+        else:
+            messages.info(request, "Not in Cart")
+            return redirect("core:features", slug = slug)
+    
+    else:
+        messages.info(request, "No active order")
+        return redirect("core:features", slug = slug)
+    
+    return redirect("core:features", slug = slug)

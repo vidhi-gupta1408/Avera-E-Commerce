@@ -1,4 +1,4 @@
-{% include 'header.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +8,17 @@
     <title>Document</title>
 </head>
 <body>
+    
+    {% include 'header.html' %}
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class = "alert alert-{{ message.tags }}" role = "alert">
+            {{ message }}
+        </div>    
+        {% endfor %}
+    {% endif %}
+
     {% block content  %}
     {% endblock content %}
 </body>

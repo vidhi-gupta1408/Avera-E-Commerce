@@ -4,7 +4,9 @@ from .views import (
     header_view,
     HomeView,
     ShopView,
-    ProductDetail
+    ProductDetail,
+    cart_view,
+    remove_cart_view
 )
 
 app_name = 'core'
@@ -21,6 +23,7 @@ urlpatterns = [
     path('footer/', views.footer_view, name='footer'),
     path('login/', views.login_view, name='login'),
     path('shopping-cart/', views.cart_default_view, name='cart'),
-    path('shopping-cart/<slug>/', views.cart_view, name='cart-default'),
+    path('shopping-cart/<slug>/', cart_view, name='cart-default'),
+    path('remove-cart/<slug>/', remove_cart_view, name='remove-cart'),
     path('product/<slug>/', views.product_detail, name='product-detail'),  # Add this line
 ]

@@ -34,18 +34,23 @@ class Item(models.Model):
         return reverse("core:features", kwargs={"slug": self.slug})
 
     def get_cart_view_url(self):
-        return reverse("core:cart", kwargs={"slug": self.slug})
+        return reverse("core:cart-default", kwargs={"slug": self.slug})
+    
+    def get_remove_cart_view_url(self):
+        return reverse("core:remove-cart", kwargs={"slug": self.slug})
 
 class OrderItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
+    ordered_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
+    quantity = models.IntegerField(default = 1)
 
     def __str__(self):
         return f"{self.quantity} of {self.item.title}"
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField(null=True, blank=True) #make ordered_date nullable
