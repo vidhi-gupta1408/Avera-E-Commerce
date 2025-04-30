@@ -395,12 +395,12 @@
   									<a href="{% url 'core:features' slug=item.slug %}">{{ item.title }}</a>
 
 									<span class="stext-105 cl3">
-										$
 										{% if item.discount_price %}
 										{{ item.discount_price }}
 										{% else %}
 										{{ item.price }}
 										{% endif %}
+										/-
 									</span>
 							</div>
 

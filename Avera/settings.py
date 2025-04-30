@@ -20,6 +20,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    'crispy_forms',
+    'crispy_bootstrap5',
+
     'core'
 ]
 
@@ -93,3 +96,6 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]

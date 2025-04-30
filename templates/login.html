@@ -1,19 +1,44 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/MagnificPopup/magnific-popup.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
-    
-    <link rel="stylesheet" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
-
-    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 
 </head>
 <body>
@@ -107,55 +132,57 @@
 	</div>
 
     <!-- Login Form -->
-    <div class="form-container" id="login-form">
-        <h2>Login</h2>
-        <div class="form-group">
-            <label for="login-email">Email ID</label>
-            <input type="email" id="login-email" placeholder="Enter your email">
+    <section class="bg0 p-t-104 p-b-116">
+        <div class="form-container" id="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="login-email">Email ID</label>
+                <input type="email" id="login-email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password">
+            </div>
+            <div class="form-actions">
+                <button onclick="login()">Login</button>
+            </div>
+            <div class="toggle-form">
+                <a href="#">Forgot Password?</a><br>
+                No account? <a href="#" onclick="toggleForms()">Click here!!</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" placeholder="Enter your password">
-        </div>
-        <div class="form-actions">
-            <button onclick="login()">Login</button>
-        </div>
-        <div class="toggle-form">
-            <a href="#">Forgot Password?</a><br>
-            No account? <a href="#" onclick="toggleForms()">Click here!!</a>
-        </div>
-    </div>
 
-    <!-- Registration Form -->
-    <div class="form-container hidden" id="register-form">
-        <h2>Register</h2>
-        <div class="form-group">
-            <label for="register-name">Full Name</label>
-            <input type="text" id="register-name" placeholder="Enter your full name">
+        <!-- Registration Form -->
+        <div class="form-container hidden" id="register-form">
+            <h2>Register</h2>
+            <div class="form-group">
+                <label for="register-name">Full Name</label>
+                <input type="text" id="register-name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="register-phone">Phone Number</label>
+                <input type="tel" id="register-phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="register-confirm">Confirm Password</label>
+                <input type="password" id="register-confirm" placeholder="Confirm password">
+            </div>
+            <div class="form-actions">
+                <button onclick="register()">Register</button>
+            </div>
+            <div class="toggle-form">
+                Already have an account? <a href="#" onclick="toggleForms()">Login here</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="register-phone">Phone Number</label>
-            <input type="tel" id="register-phone" placeholder="Enter your phone number">
-        </div>
-        <div class="form-group">
-            <label for="register-email">Email</label>
-            <input type="email" id="register-email" placeholder="Enter your email">
-        </div>
-        <div class="form-group">
-            <label for="register-password">Password</label>
-            <input type="password" id="register-password" placeholder="Enter password">
-        </div>
-        <div class="form-group">
-            <label for="register-confirm">Confirm Password</label>
-            <input type="password" id="register-confirm" placeholder="Confirm password">
-        </div>
-        <div class="form-actions">
-            <button onclick="register()">Register</button>
-        </div>
-        <div class="toggle-form">
-            Already have an account? <a href="#" onclick="toggleForms()">Login here</a>
-        </div>
-    </div>
+    </section>
 
     <script>
         function toggleForms() {

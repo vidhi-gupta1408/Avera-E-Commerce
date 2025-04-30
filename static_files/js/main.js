@@ -23,7 +23,7 @@
 //         overlayParentElement : 'html',
 //         transition: function(url){ window.location.href = url; }
 //     });
-    
+
 //     /*[ Back to top ]
 //     ===========================================================*/
 //     var windowH = $(window).height()/2;
@@ -52,7 +52,7 @@
 //     else {
 //         var posWrapHeader = 0;
 //     }
-    
+
 
 //     if($(window).scrollTop() > posWrapHeader) {
 //         $(headerDesktop).addClass('fix-menu-desktop');
@@ -104,7 +104,7 @@
 //                     $(arrowMainMenu).removeClass('turn-arrow-main-menu-m');
 //                 }
 //             });
-                
+
 //         }
 //     });
 
@@ -137,7 +137,7 @@
 //             var filterValue = $(this).attr('data-filter');
 //             $topeContainer.isotope({filter: filterValue});
 //         });
-        
+
 //     });
 
 //     // init Isotope
@@ -265,7 +265,7 @@
 //             }
 //         });
 //     });
-    
+
 //     /*==================================================================
 //     [ Show modal1 ]*/
 //     $('.js-show-modal1').on('click',function(e){
@@ -305,7 +305,7 @@ $(document).ready(function ($) {
         overlayParentElement: 'html',
         transition: function (url) { window.location.href = url; }
     });
-    
+
     /*[ Back to top ]
     ===========================================================*/
     var windowH = $(window).height() / 2;
@@ -488,14 +488,22 @@ $(document).ready(function ($) {
 
     /*==================================================================
     [ +/- num product ]*/
+    // $('.btn-num-product-down').on('click', function () {
+    //     var numProduct = Number($(this).next().val());
+    //     if (numProduct > 0) $(this).next().val(numProduct - 1);
+    // });
+
+    // $('.btn-num-product-up').on('click', function () {
+    //     var numProduct = Number($(this).prev().val());
+    //     $(this).prev().val(numProduct + 1);
+    // });
+
     $('.btn-num-product-down').on('click', function () {
-        var numProduct = Number($(this).next().val());
-        if (numProduct > 0) $(this).next().val(numProduct - 1);
+        $(this).find('a')[0].click();  // Trigger the Django remove URL
     });
 
     $('.btn-num-product-up').on('click', function () {
-        var numProduct = Number($(this).prev().val());
-        $(this).prev().val(numProduct + 1);
+        $(this).find('a')[0].click();  // Trigger the Django add URL
     });
 
     /*==================================================================
@@ -623,6 +631,6 @@ $(document).ready(function ($) {
         }
     });
 
-    
+
 })(jQuery);
 
